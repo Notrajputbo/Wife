@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Love ❤️</title>
+
+<style>
+
+body{
+margin:0;
+background:black;
+color:white;
+text-align:center;
+font-family:Arial;
+overflow:hidden;
+}
+
+h1{
+font-size:50px;
+color:pink;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px pink;}
+to{text-shadow:0 0 30px red;}
+}
+
+img{
+width:240px;
+border-radius:20px;
+margin-top:20px;
+box-shadow:0 0 25px pink;
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:15px;
+background:pink;
+color:black;
+margin-top:20px;
+}
+
+.heart{
+position:fixed;
+top:-10px;
+font-size:22px;
+color:red;
+animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(0);}
+100%{transform:translateY(100vh);}
+}
+
+#letter{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+color:black;
+padding:20px;
+border-radius:15px;
+width:280px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>I Love You ❤️</h1>
+
+<p>My Beautiful Wife 💕</p>
+
+<h3 id="timer"></h3>
+
+<img id="photo" src="1.jpg">
+
+<br>
+
+<button onclick="openLetter()">Open Love Letter 💌</button>
+
+<div id="letter">
+<h3>My Love ❤️</h3>
+<p>
+You are the most beautiful part of my life.  
+Every day with you feels like a dream.  
+I love you forever ❤️
+</p>
+
+<button onclick="closeLetter()">Close</button>
+</div>
+
+<audio autoplay loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let photos=["1.jpg","2.jpg","3.jpg","4.jpg"];
+let index=0;
+
+setInterval(function(){
+index++;
+if(index>=photos.length) index=0;
+document.getElementById("photo").src=photos[index];
+},3000);
+
+function openLetter(){
+document.getElementById("letter").style.display="block";
+}
+
+function closeLetter(){
+document.getElementById("letter").style.display="none";
+}
+
+setInterval(function(){
+
+let heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.className="heart";
+
+heart.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),6000);
+
+},300);
+
+
+let startDate=new Date("2023-01-01");
+
+setInterval(function(){
+
+let now=new Date();
+
+let diff=now-startDate;
+
+let days=Math.floor(diff/(1000*60*60*24));
+
+document.getElementById("timer").innerHTML=
+"We are together for "+days+" days ❤️";
+
+},1000);
+
+</script>
+
+</body>
+</html>
